@@ -17,13 +17,15 @@ int main() {
     for (int i = 0; i < n; i++) {
         v[i] = rand() % 100 + 1;
     }
+    bubble_sort(v, n);
     while(1){
-        printf("Escolha uma opcao:\n");
+        printf("\n\nEscolha uma opcao:\n");
         printf("1. Pesquisa Sequencial\n");
         printf("2. Pesquisa Sequencial com Sentinela\n");
         printf("3. Pesquisa Binaria\n");
         printf("4. Pesquisa Binaria Recursiva\n");
         printf("5. Pesquisa por Interpolacao\n");
+        printf("6. olhar valor do index\n");
         printf("Opcao: ");
         scanf("%d", &opcao);
 
@@ -46,15 +48,18 @@ int main() {
             case 5:
                 resultado = pesquisaInterpolacao(chave, v, n);
                 break;
+            case 6:
+                resultado = chave;
+                break;
             default:
                 printf("Opcao invalida!\n");
-                //return 1;
+                return 1;
         }
 
         if (resultado == -1) {
             printf("Chave nao encontrada.\n");
         } else {
-            printf("Chave encontrada no indice %d.\n", resultado);
+            printf("Chave %d encontrada no indice %d.\n", v[resultado] ,resultado);
         }
 
         //return 0;
