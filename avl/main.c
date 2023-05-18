@@ -1,4 +1,7 @@
 #include "avl.c"
+void printStuff(int stuff){
+    printf("%i \n", stuff);
+}
 int main() {
     AVLArvore* a = AVLcriar();
 
@@ -25,7 +28,7 @@ int main() {
     printf("Contador: %i\n", AVLcontador);
     printf("\n");
     //AVLpercorrerProfundidadeInOrder(b);
-    
+    AVLpercorrerProfundidadeInOrder(b->raiz, printStuff);
     AVLNo* avlDeletar = AVLlocalizar(b->raiz, 6);
     AVLremover(b, avlDeletar);
 
@@ -37,5 +40,6 @@ int main() {
     }else{
         printf("resultado de procurar o nó 6: Nó não encontrado\n");
     }
+    AVLpercorrerProfundidadeInOrder(b->raiz, printStuff);
     AVLcontador=0;
 }
